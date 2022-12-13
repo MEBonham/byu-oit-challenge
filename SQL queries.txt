@@ -1,0 +1,15 @@
+COUNT FROM Courses INNER JOIN Enrollments
+	WHERE Enrollment.created_at < <date>
+	AND (Enrollment.dropped_at = NULL
+		OR Enrollment.dropped_at > <date + 1 day>);
+
+COUNT FROM Instructors
+	INNER JOIN Courses
+	INNER JOIN Enrollments
+	INNER JOIN Students;
+
+SELECT SUM(e.grade * e.credits) / SUM(e.credits)
+	FROM Students
+	INNER JOIN Enrollments e
+	WHERE Student.id = <student_id>;
+
